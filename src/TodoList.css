@@ -1,0 +1,202 @@
+/* ==================== GLOBAL RESET ==================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #ffffff;
+  color: #000000;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+/* ==================== MAIN CONTAINER ==================== */
+
+.todo-container {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border: 2px solid #000000;
+  border-radius: 8px;
+  padding: 30px;
+}
+
+/* ==================== HEADER ==================== */
+
+.todo-header {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+  font-weight: bold;
+  border-bottom: 3px solid #000000;
+  padding-bottom: 15px;
+}
+
+/* ==================== INPUT SECTION ==================== */
+
+.input-section {
+  display: flex;
+  margin-bottom: 30px;
+  gap: 10px;
+}
+
+.todo-input {
+  flex: 1;
+  padding: 12px;
+  border: 2px solid #000000;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.todo-input:focus {
+  outline: none;
+  border-color: #333333;
+  background-color: #f9f9f9;
+}
+
+.primary-btn {
+  padding: 12px 20px;
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.primary-btn:hover {
+  background-color: #333333;
+}
+
+/* ==================== TODO LIST ==================== */
+
+.todo-list {
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border: 1px solid #000000;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  background-color: #ffffff;
+  transition: background-color 0.2s;
+}
+
+.todo-item:hover {
+  background-color: #f5f5f5;
+}
+
+.todo-item.completed {
+  background-color: #e0e0e0;
+}
+
+.todo-item.completed .todo-text {
+  text-decoration: line-through;
+  color: #666666;
+}
+
+/* ==================== TODO ELEMENTS ==================== */
+
+.todo-checkbox {
+  width: 20px;
+  height: 20px;
+  margin-right: 15px;
+  cursor: pointer;
+  accent-color: #000000;
+}
+
+.todo-text {
+  flex: 1;
+  font-size: 16px;
+}
+
+.edit-input {
+  flex: 1;
+  padding: 8px;
+  border: 2px solid #000000;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: #ffffff;
+  color: #000000;
+  margin-right: 10px;
+}
+
+.edit-input:focus {
+  outline: none;
+  border-color: #333333;
+  background-color: #f9f9f9;
+}
+
+/* ==================== BUTTONS ==================== */
+
+.action-buttons {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.action-btn {
+  background-color: #ffffff;
+  color: #000000;
+  border: 2px solid #000000;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.action-btn:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* ==================== STATS SECTION ==================== */
+
+.stats {
+  margin-top: 30px;
+  padding: 20px;
+  border: 2px solid #000000;
+  border-radius: 4px;
+  text-align: center;
+  background-color: #f9f9f9;
+}
+
+.stats-text {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* ==================== EMPTY STATE ==================== */
+
+.empty-state {
+  text-align: center;
+  padding: 40px;
+  color: #666666;
+  font-style: italic;
+}
+/* ==================== ERROR MESSAGE ==================== */
+
+.error-message {
+  padding: 10px 15px;
+  background-color: #ffebee;
+  border: 2px solid #ff0000;
+  border-radius: 4px;
+  color: #ff0000;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  text-align: center;
+}
