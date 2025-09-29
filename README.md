@@ -49,6 +49,7 @@ npm run dev
 
 ## Project Structure
 
+```
 to-do-list-app/
 ├── src/
 │   ├── TodoList.jsx    # Main component
@@ -57,3 +58,4 @@ to-do-list-app/
 ├── public/
 ├── package.json
 └── README.md
+```
