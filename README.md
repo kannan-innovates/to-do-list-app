@@ -10,6 +10,7 @@ A simple and elegant todo list application built with React and styled with a cl
 - ✅ Delete tasks
 - ✅ Counter showing incomplete tasks
 - ✅ Input validation with error messages
+- ✅ **Persistent storage** - Your todos are saved locally and persist after page refresh
 - ✅ Clean black & white UI design
 
 ## Installation
@@ -46,6 +47,7 @@ npm run dev
 - **Edit a task**: Click "Edit" button, modify the text, and click "Save"
 - **Delete a task**: Click "Delete" button to remove the task
 - **View progress**: Check the counter at the bottom to see remaining tasks
+**Data persistence**: All your todos are automatically saved to your browser's local storage and will be available even after closing or refreshing the page
 
 ## Project Structure
 

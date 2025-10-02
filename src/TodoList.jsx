@@ -8,11 +8,13 @@ function TodoList() {
           if (errorMessage) setErrorMessage('') 
      }
 
-     const [todos,setTodos] = useState([
-          // {id:1,text:"Learn React",completed:false},
-          // {id:2,text:"Learn MongoDB",completed:true},
-          // {id:3,text:"Learn JavaScript",completed:true}
-     ])
+     // const [todos,setTodos] = useState([
+     //      {id:1,text:"Learn React",completed:false},
+     //      {id:2,text:"Learn MongoDB",completed:true},
+     //      {id:3,text:"Learn JavaScript",completed:true}
+     // ])
+
+     const [todos,setTodos] = useState(()=>loadTodosFromLocalStorage())
 
      const [newTask,setNewTask] = useState('');
 
@@ -20,7 +22,23 @@ function TodoList() {
 
      const [editText,setEditText] = useState('');
 
-     const [errorMessage, setErrorMessage] = useState('')
+     const [errorMessage, setErrorMessage] = useState('');
+
+    
+     function saveTodosToLocalStorage(todosArray){
+          localStorage.setItem('todos',JSON.stringify(todosArray));
+     }
+
+     function loadTodosFromLocalStorage(){
+          try {
+               const saved = localStorage.getItem('todos');
+               return saved ? JSON.parse(saved):[];
+          } catch (error) {
+               console.error(`Error in loading todos,${error}`);
+               return []
+          }
+     }
+
 
 
      function addTodo(){
@@ -36,7 +54,10 @@ function TodoList() {
                completed: false
           }
 
-          setTodos([...todos,todoItem]) 
+          // setTodos([...todos,todoItem]) 
+          const newTodos = [...todos,todoItem];
+          setTodos(newTodos);
+          saveTodosToLocalStorage(newTodos)
           setNewTask('')
           setErrorMessage('');
      }
@@ -55,7 +76,8 @@ function TodoList() {
                
                return todo;
          })
-         setTodos(updatedTodos)
+         setTodos(updatedTodos);
+         saveTodosToLocalStorage(updatedTodos);
      }
 
 
@@ -64,7 +86,8 @@ function TodoList() {
                 return todo.id !== id
           })
 
-          setTodos(updatedTodos)
+          setTodos(updatedTodos);
+          saveTodosToLocalStorage(updatedTodos);
      }
 
      function startEdit(id,currentText){
@@ -77,14 +100,14 @@ function TodoList() {
           setEditText('');
 
      }
-     function saveEdit(){
-     const trimmedText = editText.trim();
-     if (trimmedText === '') {
+     function saveEdit(){     
+          const trimmedText = editText.trim();
+          if (trimmedText === '') {
           setErrorMessage('Task cannot be empty')
           return;
-     }
+          }
      
-     const updatedTodos = todos.map((todo) =>{
+          const updatedTodos = todos.map((todo) =>{
           if (todo.id === editingid){
                return {
                     ...todo,
@@ -94,11 +117,12 @@ function TodoList() {
           return todo
      })
 
-     setTodos(updatedTodos)
-     setEditingid(null);
-     setEditText('');
-     setErrorMessage('') 
-}
+          setTodos(updatedTodos);
+          saveTodosToLocalStorage(updatedTodos); 
+          setEditingid(null);
+          setEditText('');
+          setErrorMessage('') 
+     }
 
      const incompleteTodos = todos.filter((todo) => todo.completed === false);
      const itemsLeft = incompleteTodos.length;
